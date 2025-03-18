@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Rental - Bookings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="favorites.html">Favorites</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html" id="logout">Logout</a>
+  </nav>
+  <div class="container">
+    <h1>Bookings</h1>
+    <div id="bookings-list"></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Render bookings on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderBookings();
+    });
+  </script>
+</body>
+</html>

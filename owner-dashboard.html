@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Rental - Owner Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Owner Dashboard</h1>
+    <form id="studio-form">
+      <input type="text" id="studio-name" placeholder="Studio Name" required>
+      <input type="text" id="studio-address" placeholder="Address" required>
+      <input type="number" id="studio-rent" placeholder="Rent" required>
+      <button type="submit">Add Studio</button>
+    </form>
+    <div id="owned-studios"></div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Render owned studios on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderOwnedStudios();
+    });
+  </script>
+</body>
+</html>

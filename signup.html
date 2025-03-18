@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Rental - Signup</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+  </nav>
+  <div class="container">
+    <h1>Signup</h1>
+    <form id="signup-form">
+      <input type="text" id="signup-name" placeholder="Name" required>
+      <input type="email" id="signup-email" placeholder="Email" required>
+      <select id="signup-role">
+        <option value="renter">Renter</option>
+        <option value="owner">Owner</option>
+      </select>
+      <button type="submit">Signup</button>
+    </form>
+    <p id="error-msg"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
