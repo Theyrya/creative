@@ -17,6 +17,50 @@
   <div class="container">
     <h1>Studio Rental</h1>
     <input type="text" id="search" placeholder="Search studios...">
+    
+    <!-- Filter Button -->
+    <button id="filter-modal-btn" onclick="openFilterModal()">Filter Studios</button>
+  
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeFilterModal()">&times;</span>
+        <h2>Filter Studios</h2>
+        <form id="filter-form">
+          <label for="filter-availability">Availability:</label>
+          <select id="filter-availability">
+            <option value="all">All</option>
+            <option value="available">Available</option>
+            <option value="not-available">Not Available</option>
+          </select>
+  
+          <label for="filter-rent-min">rent Range:</label>
+          <input type="number" id="filter-rent-min" placeholder="Min rent">
+          <input type="number" id="filter-rent-max" placeholder="Max rent">
+  
+          <label for="filter-parking">Parking:</label>
+          <select id="filter-parking">
+            <option value="all">All</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+  
+          <label for="filter-public-transport">Public Transport:</label>
+          <select id="filter-public-transport">
+            <option value="all">All</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+  
+          <button type="submit">Apply Filters</button>
+          <button type="button" onclick="clearFilters()">Clear Filters</button>
+        </form>
+      </div>
+    </div>
+  
+    <div id="studio-list"></div>
+  </div>
+  
     <div id="studio-list"></div>
   </div>
   <script src="script.js"></script>

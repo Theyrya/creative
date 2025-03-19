@@ -7,18 +7,86 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <nav>
+    <a href="owner-dashboard.html">Dashboard</a>
+    <a href="index.html">View as Renter</a>
+    <a href="profile.html">Profile</a>
+    <a href="login.html" id="logout">Logout</a>
+  </nav>
   <div class="container">
     <h1>Owner Dashboard</h1>
     <form id="studio-form">
       <input type="text" id="studio-name" placeholder="Studio Name" required>
       <input type="text" id="studio-address" placeholder="Address" required>
-      <input type="number" id="studio-rent" placeholder="Rent" required>
+      <input type="number" id="studio-area" placeholder="Area (sqm)" required>
+      <select id="studio-type" required>
+        <option value="art studio">Art Studio</option>
+        <option value="recording studio">Recording Studio</option>
+        <option value="dance studio">Dance Studio</option>
+        <option value="rehearsal space">Rehearsal Space</option>
+      </select>
+      <input type="number" id="studio-capacity" placeholder="Capacity" required>
+      <label>
+        <input type="checkbox" id="studio-parking"> Includes Parking
+      </label>
+      <label>
+        <input type="checkbox" id="studio-public-transport"> Reachable by Public Transport
+      </label>
+      <label>
+        <input type="checkbox" id="studio-availability" checked> Available to Rent
+      </label>
+      <select id="studio-rental-term" required>
+        <option value="hourly">Hourly</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+      <input type="number" id="studio-rent" placeholder="rent" required>
       <button type="submit">Add Studio</button>
     </form>
+    <div id="edit-form" style="display: none;">
+      <h2>Edit Studio</h2>
+      <form id="edit-studio-form">
+        <input type="text" id="edit-studio-name" placeholder="Studio Name" required>
+        <input type="text" id="edit-studio-address" placeholder="Address" required>
+        <input type="number" id="edit-studio-area" placeholder="Area (sqm)" required>
+        <select id="edit-studio-type" required>
+          <option value="art studio">Art Studio</option>
+          <option value="recording studio">Recording Studio</option>
+          <option value="dance studio">Dance Studio</option>
+          <option value="rehearsal space">Rehearsal Space</option>
+        </select>
+        <input type="number" id="edit-studio-capacity" placeholder="Capacity" required>
+        <label>
+          <input type="checkbox" id="edit-studio-parking"> Includes Parking
+        </label>
+        <label>
+          <input type="checkbox" id="edit-studio-public-transport"> Reachable by Public Transport
+        </label>
+        <label>
+          <input type="checkbox" id="edit-studio-availability"> Available to Rent
+        </label>
+        <select id="edit-studio-rental-term" required>
+          <option value="hourly">Hourly</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+        </select>
+        <input type="number" id="edit-studio-rent" placeholder="rent" required>
+        <button type="submit">Update Studio</button>
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+      </form>
+    </div>
     <div id="owned-studios"></div>
   </div>
   <script src="script.js"></script>
   <script>
+    // Link the form to the addStudio function
+    document.getElementById('studio-form').addEventListener('submit', addStudio);
+
+    // Link the edit form to the updateStudio function
+    document.getElementById('edit-studio-form').addEventListener('submit', updateStudio);
+
     // Render owned studios on page load
     document.addEventListener('DOMContentLoaded', () => {
       renderOwnedStudios();
